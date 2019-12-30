@@ -1,93 +1,32 @@
-var path1 = new Wave();
-path1.color = '#cf8d47';
-path1.width = 10;
-path1.init();
+window.onload = function() {
+	anime({
+		targets: '.wave-morph',
+		d: 'M1939,2c-28.5,154.1-75,275.6-1.5,487c85,244.6,45.2,372.8,0,485.4c-16.1,40.2-94.5,224.2,1.9,482.6h55.1V2C1994.5,2,1970.6,2,1939,2z',
+		easing: 'easeOutQuad',
+		duration: 2000,
+		loop: true,  
+		direction: 'alternate'
+	});
 
-function Wave(){
-	
-	this.color = '#cf8d47';
-	this.amount = 10;
-	this.width = 10;
-	this.offsetY = (view.size.width - 100);
-	this.waveSpeed = 3;
-	this.selected = false;
-	
-	this._path = new Path({ fillColor: this.color });
-	
-	this.init = function(){
-		
-		this._path.fillColor = this.color;
-		this._path.selected = this.selected;
-		
-		this._path.segments = [];
-		this._path.add(new Point( view.size.width, 0));
-		this._path.add(new Point( view.size.width, 0));
-		for(var i = 0; i <= this.amount; i++){
-			this._path.add(new Point(1, i / this.amount) * view.size);
-		}
-		this._path.add(new Point(view.size.width, view.size.height));
-		
-	}
-	
-	this.update = function(_event){
-		
-		var w_sinus = (Math.sin(_event.count/500) + 1) * view.size.width;
-		
-		// Loop through every secound point of the path to make waves:
-		for (var i = 1; i <= this.amount+2; i = i+2){
-			var segment = this._path.segments[i];
-			// Make a sinus wave
-			var sinus = Math.sin(_event.time * this.waveSpeed + i);
-			// Change the y position of the point:
-           // segment.point.x = sinus * this.width + (this.width * 2);
-            segment.point.x = sinus * this.width + (this.width * 2);
-		}
-		
-		// Same as over (but on the "left over" segments) to make it look more random
-		for (var i = 2; i <= this.amount+2; i = i+2){
-			var segment = this._path.segments[i];
-			var sinus = Math.sin(_event.time * (this.waveSpeed * .8) + i);
-			segment.point.x = sinus * this.width + (this.width * 2);
-		}
-		
-		// Water "tide" (makes alle the waves go up and down):
-		for(var i = 1; i <= this.amount+2; i++){
-           // this._path.segments[i].point.x += w_sinus/30 + this.offsetY;
-            var newValue = this._path.segments[i].point.x + this.offsetY + w_sinus/30
-            this._path.segments[i].point.x = newValue >= view.size.width ? view.size.width - (newValue - view.size.width) : newValue; 
-		}
-		
-		// Smooth the waves:
-		this._path.smooth({ from: 2, to: this.amount+2 });
-		
-	}
-}
 
-function onFrame(event) {
-	path1.update(event);
-}
+	anime({
+		targets: '.wave-morph',
+		d: [
+			{value:'M1939,2c-28.5,154.1-75,275.6-1.5,487c85,244.6,45.2,372.8,0,485.4c-16.1,40.2-94.5,224.2,1.9,482.6h55.1V2C1994.5,2,1970.6,2,1939,2z'},
+			{value:'M168.7,0c28.5,149.6,114.1,207.8-17.9,459.8c-112.5,214.8-66.5,474-8,489c63.4,16.2,126.3,129,13.2,506.1h1845.2V0C2001.3,0,200.2,0,168.7,0z'}
+		],
+		easing: 'easeOutQuad',
+		duration: 2000,
+	});
 
-function onResize(event) {
-	path1.init();
-}
+	/*anime({
+		targets: '.wave-morph',
+		d: 'M2293.2-327.8c28.5,149.6,69.2,290.6-1.9,487c-82.5,228.1-18,400.6,0,485.4c9.6,45.2,91.5,182.2,1.9,482.6h55.1v-1455C2348.2-327.8,2324.7-327.8,2293.2-327.8z',
+		//d: 'm-2,-110.30547c213.92539,-164.88947 427.85073,164.88946 641.77607,0l0,296.80101c-139.92534,-24.11052 -264.85068,196.11055 -641.77607,0l0,-296.80101z',
+		easing: 'easeOutQuad',
+		duration: 2000,
+		loop: true,  
+		direction: 'alternate'
+	});*/
 
-function onMouseDown(event) {
-   /* while(path1.offsetY > 0){
-        setTimeout(function(){
-            path1.offsetY = 0;
-        }, 20);
-    }*/
-	/*for (var i = (view.size.width - 120); i >= -100; i = i-2){
-		path1.offsetY = i;
-    }*/
-    path1.offsetY = 0
-	//path1._path.tween({'position.x': 0}, {easing: 'easeInOutCubic',    duration: 2000});
-	path1.waveSpeed = 5;
-}
-
-function onMenuClick(event){
-    path1.offsetY = 0
-	//path1._path.tween({'position.x': 0}, {easing: 'easeInOutCubic',    duration: 2000});
-    path1.waveSpeed = 5;
-    alert("clicked");
 }

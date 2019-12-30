@@ -210,17 +210,21 @@ main{
     margin-left: -40px;
 }
 
-.canvas-bg{
-    width: 90%;
-    height: 90%;
-    z-index: -1;
+.svg-anime{
     position: absolute;
-    top:0;
-    left: 0;
-    border: 2px solid green;
+    z-index: 0;
+    top: 0;
+    right: 0;
 }
 
-canvas[resize] {
-    width: 100%;
+.svg-anime svg{
+    width: auto;
+    height: 100vh;
+}
+
+.wave-morph{
+    fill:#CF8D47;
+    display: block;
+    width: auto;
     height: 100%;
 }

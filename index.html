@@ -6,14 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <script type="text/javascript" src="./js/paper-full.min.js"></script>
-    <script type="text/paperscript" canvas="myCanvas" src="./js/fluid-animations.js"> </script>
+    <script src="./js/anime.min.js"></script>
+    <script src="./js/fluid-animations.js"></script>
     <link rel="stylesheet" type="text/css" href="./css/main.css" media="screen" />
-    <style></style>
-
 </head>
 
 <body>
+    <script>
+        let animation = anime({
+            targets: '.product-name',
+            width: 20,
+            duration: 300,
+            easing: 'linear',
+            delay: function (el, i, l) {
+                return i * 500;
+            },
+            endDelay: 500,
+            loop: true
+        });      
+    </script>
     <header>
         <div class="nav-products">
             <span class="nav-logo">
@@ -59,11 +70,20 @@
             </ul>
         </div>
     </header>
+    <div class="svg-anime">
+        <svg viewBox="0 0 1992.3 1454.5">
+            <path class="wave-morph" d="M1937.2,2c28.5,149.6,69.2,290.6-1.9,487c-82.5,228.1-18,400.6,0,485.4c9.6,45.2,91.5,182.2,1.9,482.6h55.1V2C1992.2,2,1968.7,2,1937.2,2z" />
+        </svg>
+    </div>
     <main>
-       <div class="main-product">
+        <div class="main-product">
             <article class="product-view">
                 <div class="product-name product-three-hundred">
-                    <h1>emagraça <span><p>de forma</p></span> <p>saudável</p></h1>
+                    <h1>emagraça <span>
+                            <p>de forma</p>
+                        </span>
+                        <p>saudável</p>
+                    </h1>
                     <button class="viewmore-btn">saiba mais</button>
                 </div>
                 <div class="product-image">
@@ -81,7 +101,7 @@
                     <img src="./images/Energy/SINELIM-energy.png" alt="SINELIM-360">
                 </div>
             </article>
-        </div>--> 
+        </div>-->
         <div class="product-menu">
             <div class="menu-guide">
                 <img src="./images/Caminho 1180.png" alt="menu">
@@ -92,7 +112,7 @@
                         <img src="./images/360/360.png" alt="facebook">
                     </li>
                     <li id="nav-energy" onclick="onMenuClick()">
-                       <img src="./images/Energy/energy-icon.png" alt="instagram">
+                        <img src="./images/Energy/energy-icon.png" alt="instagram">
                     </li>
                     <li id="nav-xtreme" onclick="onMenuClick()">
                         <img src="./images/Icons/xtreme-icon.png" alt="youtube">
@@ -101,10 +121,6 @@
             </div>
         </div>
     </main>
-    <div class="canvas-bg">
-        <canvas id="myCanvas" resize></canvas>
-    </div>
-    
 </body>
 
 </html>
