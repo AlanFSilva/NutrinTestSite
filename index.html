@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript" src="./js/paper-full.min.js"></script>
+    <script type="text/paperscript" canvas="myCanvas" src="./js/fluid-animations.js"> </script>
+    <link rel="stylesheet" type="text/css" href="./css/main.css" media="screen" />
+    <style></style>
+
+</head>
+
+<body>
+    <header>
+        <div class="nav-products">
+            <span class="nav-logo">
+                <img src="images/Icons/Grupo 438.png" alt="SineLim">
+            </span>
+            <span>Produtos</span>
+            <ul>
+                <li>
+                    360
+                </li>
+                <li>
+                    Energy
+                </li>
+                <li>
+                    Extremy
+                </li>
+                <li>
+                    Perguntas Frequentes
+                </li>
+            </ul>
+        </div>
+        <div class="nav-social">
+            <ul>
+                <li>
+                    <a href="https://facebook.com"><img src="./images/Icons/facebook-icon.png" alt="facebook"></a>
+                </li>
+                <li>
+                    <a href="https://facebook.com"><img src="./images/Icons/instagram-icon.png" alt="instagram"></a>
+                </li>
+                <li>
+                    <a href="https://facebook.com"><img src="./images/Icons/youtube-icon.png" alt="youtube"></a>
+                </li>
+            </ul>
+        </div>
+        <div class="nav-market">
+            <ul>
+                <li>
+                    <a href="https://facebook.com"><img src="./images/Icons/user-icon.png" alt="user"></a>
+                </li>
+                <li>
+                    <a href="https://facebook.com"><img src="./images/Icons/store-icon.png" alt="store"></a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <main>
+       <div class="main-product">
+            <article class="product-view">
+                <div class="product-name product-three-hundred">
+                    <h1>emagraça <span><p>de forma</p></span> <p>saudável</p></h1>
+                    <button class="viewmore-btn">saiba mais</button>
+                </div>
+                <div class="product-image">
+                    <img src="./images/360/SINELIM-360.png" alt="SINELIM-360">
+                </div>
+            </article>
+        </div>
+        <!--<div class="main-product">
+            <article class="product-view">
+                <div class="product-name product-energy">
+                     <h1>+ energia <span><p>para o seu</p></span> <p>dia</p></h1>
+                    <button class="viewmore-btn">saiba mais</button>
+                </div>
+                <div class="product-image">
+                    <img src="./images/Energy/SINELIM-energy.png" alt="SINELIM-360">
+                </div>
+            </article>
+        </div>--> 
+        <div class="product-menu">
+            <div class="menu-guide">
+                <img src="./images/Caminho 1180.png" alt="menu">
+            </div>
+            <div class="menu-nav">
+                <ul>
+                    <li id="nav-360" onclick="onMenuClick()">
+                        <img src="./images/360/360.png" alt="facebook">
+                    </li>
+                    <li id="nav-energy" onclick="onMenuClick()">
+                       <img src="./images/Energy/energy-icon.png" alt="instagram">
+                    </li>
+                    <li id="nav-xtreme" onclick="onMenuClick()">
+                        <img src="./images/Icons/xtreme-icon.png" alt="youtube">
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+    <div class="canvas-bg">
+        <canvas id="myCanvas" resize></canvas>
+    </div>
+    
+</body>
+
+</html>
